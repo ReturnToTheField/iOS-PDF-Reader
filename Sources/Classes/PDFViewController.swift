@@ -17,7 +17,7 @@ extension PDFViewController {
     /// - parameter backButton:        button to override the default controller back button
     ///
     /// - returns: a `PDFViewController`
-    public class func createNew(with document: PDFDocument, title: String? = nil, actionButtonImage: UIImage? = nil, actionStyle: ActionStyle = .print, backButton: UIBarButtonItem? = nil, isHiddenRightButton: Bool) -> PDFViewController {
+    public class func createNew(with document: PDFDocument, title: String? = nil, actionButtonImage: UIImage? = nil, actionStyle: ActionStyle = .print, backButton: UIBarButtonItem? = nil) -> PDFViewController {
         let storyboard = UIStoryboard(name: "PDFReader", bundle: Bundle(for: PDFViewController.self))
         let controller = storyboard.instantiateInitialViewController() as! PDFViewController
         controller.document = document
@@ -29,7 +29,6 @@ extension PDFViewController {
             controller.title = document.fileName
         }
         
-        controller.isHiddenRightButton = isHiddenRightButton
         controller.backButton = backButton
         
         if let actionButtonImage = actionButtonImage {
@@ -91,7 +90,7 @@ public final class PDFViewController: UIViewController {
     /// Backbutton used to override the default back button
     fileprivate var backButton: UIBarButtonItem?
     
-    fileprivate var isHiddenRightButton: Bool = false
+    var isHiddenRightButton: Bool = false
     
     /// Background color to apply to the collectionView.
     public var backgroundColor: UIColor? = .lightGray {
