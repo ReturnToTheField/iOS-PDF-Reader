@@ -90,7 +90,7 @@ public final class PDFViewController: UIViewController {
     /// Backbutton used to override the default back button
     fileprivate var backButton: UIBarButtonItem?
     
-    var isHiddenRightButton: Bool = false
+    public var isHiddenRightButton: Bool = false
     
     /// Background color to apply to the collectionView.
     public var backgroundColor: UIColor? = .lightGray {
